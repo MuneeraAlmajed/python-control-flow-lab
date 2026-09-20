@@ -82,4 +82,28 @@ def determine_season():
     print(f'{month} {day} is in {season}')
 
 determine_season()
-    
+
+# Exercise 6
+
+def guess_number(): 
+    target = 42
+
+    for attempt in range(1,6):
+        guess= int(input('Guess a number between 1 and 100: '))
+
+        if guess == target:
+            print('Congratulation, you guessed correctly')
+            break
+        if attempt == 5:
+            print('Last chance')
+
+        if guess < target:
+            print('Guess is too low')
+        elif guess > target: 
+            print('Guess is too high')
+
+            if guess != target: 
+                print('Sorry, you failed to guess the number in five attempts')
+
+
+guess_number()
