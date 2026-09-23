@@ -10,11 +10,14 @@ print_greeting()
 
 def check_letter():
     letter = input('Enter a letter: ')
-
-    if letter.lower() in 'aeiou':
-        print(f'The letter {letter} is a vowel')
+    
+    if letter.isalpha():
+        if letter.lower() in 'aeiou':
+            print(f'The letter {letter} is a vowel')
+        else:
+            print(f'The letter {letter} is a consonant')
     else:
-        print(f'The letter {letter} is a consonant')
+        print('That is not a letter')
 
 check_letter()
 
@@ -59,18 +62,25 @@ def weather_advice():
         print('Wear a warm coat')
     elif cold == 'no' and raining == 'yes':
         print('Carry an umbrella')
-    else: 
+    elif cold == 'no' and raining == 'no':
         print('Wear light clothing')
+    else:
+        print('Invalid Input')
 
 weather_advice()
 
 # Exercise 5
 
 def determine_season():
-    month = input('Enter the mont of the year (Jan - Dec): ')
+    month = input('Enter the month of the year (Jan - Dec): ')
     day = int(input('Enter the day of the month: '))
-
-    if month in ['Dec', 'Jan', 'Feb'] or (month == 'Mar' and day <=19):
+    
+    if month not in ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']:
+        print('Invalid month')
+    elif day < 1 or day > 31:
+        print('Invalid day')
+    elif month in ['Dec', 'Jan', 'Feb'] or (month == 'Mar' and day <=19):
         season = 'Winter'
     elif month in ['Mar','Apr','May'] or (month == 'Jun' and day <=20):
         season = 'Spring'
@@ -102,8 +112,8 @@ def guess_number():
         elif guess > target: 
             print('Guess is too high')
 
-            if guess != target: 
-                print('Sorry, you failed to guess the number in five attempts')
+    if guess != target: 
+        print('Sorry, you failed to guess the number in five attempts')
 
 
 guess_number()
